@@ -1,0 +1,20 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+long long solution(int r1, int r2) {
+    long long totalPoints = 0;
+
+    for (int x = 1; x <= r2; x++) {
+
+        long long max_y = floor(sqrt(1LL * r2 * r2 - 1LL * x * x));
+
+        long long min_y = (x < r1) ? ceil(sqrt(1LL * r1 * r1 - 1LL * x * x)) : 0;
+
+        totalPoints += (max_y - min_y + 1);
+    }
+
+    return totalPoints * 4;
+}
